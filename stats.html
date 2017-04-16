@@ -151,7 +151,7 @@
                                         for (var i = 0; i < data.length; i++) {
                                             (function(i) {
                                                 setTimeout(function() {
-                                                    addSoundData(1 / data[i].sound);
+                                                    addSoundData(2 / data[i].sound);
                                                 }, 250 * i)
                                             }(i));
                                         }
@@ -163,7 +163,7 @@
                                                 success: function(data) {
                                                     data = JSON.parse(data);
                                                     data = data.reverse();
-                                                    addSoundData(1 / data[0].sound);
+                                                    addSoundData(2 / data[0].sound);
                                                 }
                                             })
                                         }, 250);
@@ -207,7 +207,7 @@
                                         for (var i = 0; i < data.length; i++) {
                                             (function(i) {
                                                 setTimeout(function() {
-                                                    addLightData(data[i].light * 1000);
+                                                    addLightData(data[i].light * 10000);
                                                 }, 250 * i)
                                             }(i));
                                         }
