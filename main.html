@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="canvasjs.min.js"></script>
     <script type="text/javascript" src="jquery.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script type="text/javascript" src="userinfo.js"></script>
     <style>
     #view-source {
         position: fixed;
@@ -34,12 +34,13 @@
             <div class="mdl-layout--large-screen-only mdl-layout__header-row">
                 <h2>buySense</h2>
                 <img src="images/logo.png" style="width: 15%; margin-left: 2%">
+                <h6 class="loginText" style="margin-left: 45%">Logged in as epicshaunak@gmail.com</h6>
             </div>
             <div class="mdl-layout--large-screen-only mdl-layout__header-row">
             </div>
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
                 <a href="index.html" class="mdl-layout__tab">Home</a>
-                <a href="#" class="mdl-layout__tab is-active">Main</a>
+                <a href="#" class="mdl-layout__tab is-active">Recommended</a>
                 <a href="stats.html" class="mdl-layout__tab">Statistics</a>
                 <a href="about.html" class="mdl-layout__tab">About</a>
             </div>
@@ -49,7 +50,28 @@
                 <section class="section--center mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-cell mdl-cell--12-col" style="margin-left: 10%">
                         <h3>Recommended Products for your Home</h3>
-                        <p>Filler text</p>
+                        <div id="items">
+                        </div>
+                        <script type="text/javascript">
+                        var tempAverage = localStorage.getItem("tempAverage");
+                        var soundAverage = localStorage.getItem("soundAverage");
+                        var lightAverage = localStorage.getItem("lightAverage");
+                        console.log(lightAverage);
+                        console.log(soundAverage);
+                        console.log(tempAverage);
+                        if (lightAverage < 3000) {
+                            console.log("too dark");
+                            $("#items").append("<div class='demo-card-wide mdl-card mdl-shadow--2dp' style='width: 100%'><div class='mdl-card__title'><h2 class='mdl-card__title-text'>Modern Stand Table Lamps 2 Set Lamps Touch Sensor Bedroom Night Lamp Desk Lights</h2></div><div class='mdl-card__supporting-text'><img src='lamp.jpg'></img></div>This item was recommended because it was too dark in this area</div>");
+                        }
+                        if (soundAverage >= 71) {
+                            console.log("too loud");
+                            $("#items").append("<div class='demo-card-wide mdl-card mdl-shadow--2dp' style='width: 100%'><div class='mdl-card__title'><h2 class='mdl-card__title-text'>Bose Quiet Comfort 3 Acoustic Noise Cancelling Headphones</h2></div><div class='mdl-card__supporting-text'><img src='headphones.jpg'</img></div>This item was recommended because it was too loud in this area</div>");
+                        }
+                        if (tempAverage >= 72) {
+                            console.log("too hot");
+                            $("#items").append("<div class='demo-card-wide mdl-card mdl-shadow--2dp' style='width: 100%'><div class='mdl-card__title'><h2 class='mdl-card__title-text'>Lasko Wind Curve 42-Inch 3-Speed Tower Fan Remote Control Fresh Air Ioniz 2551</h2></div><div class='mdl-card__supporting-text'><img src='fan.jpg'></img></div>This item was recommended because it was too hot in this area</div>");
+                        }
+                        </script>
                     </div>
                 </section>
             </div>
